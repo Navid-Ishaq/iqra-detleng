@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="اقرا — اسلامی ضابطۂ انسانی زندگی، حقوق اللہ، حقوق العباد، کردار اور معاشرتی ذمہ داری کو آسان اور قابلِ فہم انداز میں سیکھنے کا ایک تعلیمی سفر۔">
+  <meta name="theme-color" content="#000000">
+  <title>اقرا — علم سے شعور، شعور سے عمل</title>
+  <style>
+    :root{
+      --ink:#0a0a0a;
+      --paper:#ffffff;
+      --muted:#666666;
+      --soft:#f4f4f4;
+      --line:#d9d9d9;
+      --max:1180px;
+      --radius:10px;
+      --shadow:0 16px 40px rgba(0,0,0,.08);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:"Noto Nastaliq Urdu","Noto Naskh Arabic","Segoe UI",Tahoma,serif;
+      font-size:20px;
+      line-height:2.05;
+      text-rendering:optimizeLegibility;
+    }
+
+    a{color:inherit}
+    button, a{font:inherit}
+    button{cursor:pointer}
+
+    .skip-link{
+      position:absolute;
+      inset-inline-start:-9999px;
+      top:12px;
+      z-index:999;
+      background:#fff;
+      color:#000;
+      border:2px solid #000;
+      padding:8px 14px;
+    }
+    .skip-link:focus{inset-inline-start:12px}
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(255,255,255,.96);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(14px);
+    }
+
+    .nav{
+      max-width:var(--max);
+      margin:auto;
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding:10px 24px;
+    }
+
+    .brand{
+      text-decoration:none;
+      font-weight:900;
+      font-size:1.6rem;
+      letter-spacing:.01em;
+      white-space:nowrap;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:8px 18px;
+      font-size:.93rem;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      border-bottom:1px solid transparent;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus-visible{
+      border-bottom-color:#000;
+      outline:none;
+    }
+
+    main{overflow:hidden}
+
+    .hero{
+      max-width:var(--max);
+      margin:auto;
+      padding:92px 24px 64px;
+    }
+
+    .kicker{
+      display:inline-block;
+      margin-bottom:18px;
+      font-weight:800;
+      font-size:.95rem;
+      border:1px solid #000;
+      padding:7px 13px;
+      background:#fff;
+    }
+
+    h1,h2,h3{
+      margin-top:0;
+      line-height:1.45;
+      text-wrap:balance;
+    }
+
+    h1{
+      font-size:clamp(3.2rem,10vw,7rem);
+      margin-bottom:12px;
+      letter-spacing:-.03em;
+    }
+
+    .hero-line{
+      font-size:clamp(1.45rem,3vw,2.2rem);
+      font-weight:900;
+      max-width:930px;
+      margin:0 0 20px;
+      line-height:1.65;
+    }
+
+    .hero-copy{
+      max-width:900px;
+      font-size:1.12rem;
+      color:#222;
+      margin-bottom:34px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:50px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:54px;
+      padding:10px 22px;
+      border:2px solid #000;
+      border-radius:6px;
+      text-decoration:none;
+      font-weight:900;
+      transition:.2s ease;
+    }
+
+    .btn-dark{background:#000;color:#fff}
+    .btn-light{background:#fff;color:#000}
+    .btn:hover,.btn:focus-visible{
+      transform:translateY(-2px);
+      box-shadow:0 8px 0 #d9d9d9;
+      outline:none;
+    }
+
+    .quick-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      border:1px solid #000;
+    }
+
+    .quick-card{
+      padding:28px;
+      min-height:220px;
+      background:#fff;
+    }
+
+    .quick-card + .quick-card{
+      border-inline-start:1px solid #000;
+    }
+
+    .quick-card h2{
+      font-size:1.25rem;
+      margin-bottom:10px;
+    }
+
+    .quick-card p{margin:0;color:#252525}
+
+    .section{
+      padding:78px 24px;
+    }
+
+    .section-inner{
+      max-width:var(--max);
+      margin:auto;
+    }
+
+    .section-dark{
+      background:#000;
+      color:#fff;
+    }
+
+    .section-soft{background:var(--soft)}
+
+    .section-title{
+      font-size:clamp(2rem,5vw,3.3rem);
+      margin-bottom:18px;
+    }
+
+    .section-lead{
+      max-width:900px;
+      font-size:1.12rem;
+      margin-bottom:38px;
+    }
+
+    .section-dark .section-lead{color:#e8e8e8}
+
+    .origin{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:44px;
+      align-items:start;
+    }
+
+    .origin-mark{
+      border:1px solid #fff;
+      padding:30px;
+      font-size:1.4rem;
+      font-weight:900;
+      position:sticky;
+      top:110px;
+    }
+
+    .origin-copy p:first-child{font-size:1.16rem}
+
+    .dua{
+      margin-top:28px;
+      padding:24px 0;
+      border-top:1px solid #555;
+      border-bottom:1px solid #555;
+      font-weight:700;
+    }
+
+    .two-column{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+
+    .block{
+      border:1px solid #000;
+      padding:30px;
+      background:#fff;
+      border-radius:var(--radius);
+    }
+
+    .block h3{
+      font-size:1.55rem;
+      margin-bottom:12px;
+    }
+
+    .block p{margin-bottom:0}
+
+    .statement{
+      margin:42px 0 0;
+      border-inline-start:7px solid #000;
+      padding:18px 26px;
+      font-size:1.25rem;
+      font-weight:900;
+      background:#fafafa;
+    }
+
+    .references{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+      margin-top:34px;
+    }
+
+    .ref-card{
+      padding:26px;
+      border:1px solid #000;
+      background:#fff;
+      min-height:200px;
+    }
+
+    .ref-card strong{
+      display:block;
+      font-size:1.08rem;
+      margin-bottom:8px;
+    }
+
+    .ref{
+      margin-top:16px;
+      display:inline-block;
+      font-size:.9rem;
+      font-weight:900;
+      border-top:1px solid #000;
+      padding-top:7px;
+    }
+
+    .learning-list{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      list-style:none;
+      padding:0;
+      margin:30px 0 0;
+    }
+
+    .learning-list li{
+      border:1px solid #000;
+      background:#fff;
+      padding:17px 18px;
+      min-height:88px;
+      display:flex;
+      align-items:center;
+      font-weight:800;
+    }
+
+    .heart{
+      max-width:900px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .heart p{font-size:1.15rem}
+
+    .heart-questions{
+      margin:34px auto 0;
+      max-width:780px;
+      display:grid;
+      gap:10px;
+    }
+
+    .heart-questions div{
+      border:1px solid #fff;
+      padding:15px 18px;
+      font-weight:800;
+    }
+
+    .values{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+      margin-top:30px;
+    }
+
+    .value{
+      border:1px solid #000;
+      min-height:120px;
+      padding:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      font-weight:900;
+      font-size:1.1rem;
+      background:#fff;
+    }
+
+    .notice{
+      border:2px solid #000;
+      padding:32px;
+      background:#fff;
+    }
+
+    .notice + .notice{margin-top:18px}
+    .notice h3{font-size:1.4rem;margin-bottom:10px}
+    .notice p:last-child{margin-bottom:0}
+
+    .lessons-header{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:30px;
+      margin-bottom:30px;
+    }
+
+    .lessons-header p{
+      max-width:650px;
+      margin:0;
+    }
+
+    .lessons-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:12px;
+    }
+
+    .lesson-btn{
+      width:100%;
+      min-height:116px;
+      border:1px solid #000;
+      border-radius:6px;
+      background:#fff;
+      color:#000;
+      font-weight:900;
+      font-size:1.05rem;
+      transition:.18s ease;
+      padding:18px 12px;
+    }
+
+    .lesson-btn:hover,
+    .lesson-btn:focus-visible{
+      background:#000;
+      color:#fff;
+      transform:translateY(-2px);
+      outline:none;
+    }
+
+    .closing{
+      text-align:center;
+      max-width:900px;
+      margin:auto;
+    }
+
+    .closing-lines{
+      font-size:clamp(1.45rem,3.5vw,2.35rem);
+      font-weight:900;
+      line-height:1.8;
+      margin:28px 0 0;
+    }
+
+    footer{
+      background:#000;
+      color:#fff;
+      border-top:1px solid #333;
+    }
+
+    .footer-inner{
+      max-width:var(--max);
+      margin:auto;
+      padding:40px 24px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      align-items:end;
+      gap:28px;
+    }
+
+    .footer-title{
+      font-size:1.55rem;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+
+    .footer-note{
+      max-width:780px;
+      color:#d9d9d9;
+      margin:0;
+    }
+
+    .domain{
+      white-space:nowrap;
+      font-weight:900;
+      border:1px solid #777;
+      padding:9px 12px;
+    }
+
+    dialog{
+      width:min(720px,calc(100% - 30px));
+      border:2px solid #000;
+      border-radius:8px;
+      padding:0;
+      box-shadow:var(--shadow);
+      background:#fff;
+      color:#000;
+    }
+
+    dialog::backdrop{background:rgba(0,0,0,.78)}
+
+    .modal-box{padding:32px}
+    .modal-box h2{font-size:1.7rem;margin-bottom:14px}
+    .modal-box p{margin:0 0 22px}
+    .modal-close{
+      border:2px solid #000;
+      background:#000;
+      color:#fff;
+      padding:10px 22px;
+      border-radius:5px;
+      font-weight:900;
+    }
+
+    @media (max-width:980px){
+      .quick-grid{grid-template-columns:1fr}
+      .quick-card + .quick-card{
+        border-inline-start:0;
+        border-top:1px solid #000;
+      }
+      .origin{grid-template-columns:1fr}
+      .origin-mark{position:static}
+      .learning-list{grid-template-columns:repeat(2,1fr)}
+      .values{grid-template-columns:repeat(2,1fr)}
+      .lessons-grid{grid-template-columns:repeat(3,1fr)}
+    }
+
+    @media (max-width:700px){
+      body{font-size:18px}
+      .site-header{position:relative}
+      .nav{align-items:flex-start;flex-direction:column;padding-block:14px}
+      .nav-links{gap:7px 14px}
+      .hero{padding-top:58px}
+      .hero-actions{flex-direction:column;align-items:stretch}
+      .two-column,.references{grid-template-columns:1fr}
+      .learning-list{grid-template-columns:1fr}
+      .lessons-header{display:block}
+      .lessons-header p{margin-top:12px}
+      .lessons-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-inner{grid-template-columns:1fr}
+      .domain{white-space:normal}
+    }
+
+    @media (max-width:420px){
+      .lessons-grid{grid-template-columns:1fr}
+      .values{grid-template-columns:1fr}
+      .quick-card,.block,.notice,.modal-box{padding:22px}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      *{scroll-behavior:auto!important;transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#اصل-مواد">اصل مواد پر جائیں</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="مرکزی رہنمائی">
+      <a class="brand" href="#اوپر">اقرا</a>
+      <div class="nav-links">
+        <a href="#تعارف">تعارف</a>
+        <a href="#آغاز">آغاز</a>
+        <a href="#مقصد">مقصد</a>
+        <a href="#ذمہ-داریاں">ذمہ داریاں</a>
+        <a href="#اسباق">اسباق</a>
+        <a href="#احتیاط">اہم وضاحت</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="اصل-مواد">
+    <section class="hero" id="اوپر">
+      <span class="kicker">اقرا ڈاٹ ڈیٹ لینگ ڈاٹ کام</span>
+      <h1>اقرا</h1>
+      <p class="hero-line">علم سے شعور، شعور سے عمل، عمل سے کردار، اور کردار سے ایک بہتر زندگی۔</p>
+      <p class="hero-copy">
+        اسلامی ضابطۂ انسانی زندگی کو سمجھنے کا ایک محتاط تعلیمی سفر؛ جہاں مقصد صرف یہ جاننا نہیں کہ دین کیا کہتا ہے،
+        بلکہ یہ سمجھنا ہے کہ ہمارا اپنے رب، اپنے گھر، اپنے رشتوں، اپنے معاشرے اور پوری انسانیت کے ساتھ رویہ کیسا ہونا چاہیے۔
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-dark" href="#اسباق">اسباق کی طرف جائیں</a>
+        <a class="btn btn-light" href="#مقصد">اقرا کا مقصد پڑھیں</a>
+      </div>
+
+      <div class="quick-grid" id="تعارف">
+        <article class="quick-card">
+          <h2>یہ کیا ہے؟</h2>
+          <p>تقریباً پینتیس اسباق پر مشتمل ایک سادہ تعلیمی سلسلہ، جس میں اسلامی طرزِ زندگی، کردار اور ذمہ داریوں کو سمجھنے کی کوشش کی جائے گی۔</p>
+        </article>
+        <article class="quick-card">
+          <h2>کس کے لیے ہے؟</h2>
+          <p>ہر اس شخص کے لیے جو دین کو صرف معلومات کے طور پر نہیں، بلکہ اپنی ذات، گھر، معاملات اور معاشرت میں سمجھ کر بہتر زندگی گزارنا چاہتا ہے۔</p>
+        </article>
+        <article class="quick-card">
+          <h2>کیوں ہے؟</h2>
+          <p>تاکہ علم دل تک پہنچے، انسان اپنے حقوق کے ساتھ دوسروں کے حقوق بھی پہچانے، اور عبادت کے ساتھ اخلاق، انصاف، رحم اور جواب دہی بھی زندگی کا حصہ بنیں۔</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="آغاز">
+      <div class="section-inner origin">
+        <div class="origin-mark">ایک گھر سے آغاز، خیر کی ایک وسیع امید</div>
+        <div class="origin-copy">
+          <h2 class="section-title">یہ کوشش ایک خاندانی نیت سے شروع ہوئی</h2>
+          <p>
+            اس تعلیمی سلسلے کی بنیاد خاندان کے بزرگ <strong>رشید احمد طاہریم</strong> کی اس ہدایت اور دلی خواہش پر رکھی گئی ہے
+            کہ علم اور اصلاح کی ابتدا پہلے اپنے گھر سے کی جائے؛ کیونکہ معاشرے کی بہتری اکثر وہیں سے جنم لیتی ہے جہاں ایک فرد
+            اپنے آپ کو، اپنے گھر کو اور اپنی ذمہ داریوں کو سنجیدگی سے سمجھنا شروع کرتا ہے۔
+          </p>
+          <p>
+            یہ کوشش کسی برتری کے احساس سے نہیں، بلکہ سیکھنے، اپنی اصلاح کرنے اور خیر کو قریب سے شروع کرنے کی نیت سے ہے۔
+            امید ہے کہ گھر سے اٹھنے والا یہ چھوٹا سا قدم آگے چل کر دوسروں کے لیے بھی ایک پُرامن، باوقار اور ذمہ دار طرزِ زندگی کی یاد دہانی بن سکے۔
+          </p>
+          <div class="dua">
+            اللہ تعالیٰ رشید احمد طاہریم کو اس نیک نیت اور خیر کی ترغیب پر بہترین اجر عطا فرمائے، ان کی عمر، صحت، سکون اور عزت میں برکت عطا فرمائے،
+            انہیں ایمان، عافیت اور دل کا اطمینان نصیب کرے، ان کی نیک خواہشات کو صدقۂ جاریہ بنائے، ان کے اہلِ خانہ میں محبت، خیر اور اتفاق قائم رکھے،
+            اور اس کوشش سے پیدا ہونے والی ہر درست بات، ہر نفع بخش علم اور ہر اچھے عمل کا اجر ان کے نامۂ اعمال میں بھی شامل فرمائے۔ آمین۔
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="مقصد">
+      <div class="section-inner">
+        <h2 class="section-title">اقرا کا مرکزی مقصد</h2>
+        <p class="section-lead">
+          اقرا صرف پڑھنے کی جگہ نہیں؛ یہ اپنے آپ کو دیکھنے، ذمہ داری کو سمجھنے اور علم کو کردار میں بدلنے کی دعوت ہے۔
+          یہاں سیکھنے کا مرکز انسان کی مکمل زندگی ہے: اس کا اپنے رب سے تعلق بھی، اور بندوں کے ساتھ اس کا معاملہ بھی۔
+        </p>
+
+        <div class="two-column" id="ذمہ-داریاں">
+          <article class="block">
+            <h3>حقوق اللہ</h3>
+            <p>
+              اپنے رب کو پہچاننا، اس پر ایمان رکھنا، اس کی عبادت کرنا، شکر اور توبہ کو زندگی میں جگہ دینا،
+              نیت کو درست رکھنا، اس کے احکام کو سمجھنا اور اپنی زندگی کو اس کی رضا کے مطابق ڈھالنے کی کوشش کرنا۔
+            </p>
+          </article>
+          <article class="block">
+            <h3>حقوق العباد</h3>
+            <p>
+              والدین، اولاد، شریکِ حیات، رشتہ داروں، پڑوسیوں، دوستوں، کمزوروں، محتاجوں اور معاشرے کے دوسرے افراد کے ساتھ
+              عدل، رحم، سچائی، دیانت، احترام اور حسنِ سلوک اختیار کرنا؛ کسی کا حق نہ چھیننا اور کسی کو زبان، ہاتھ، اختیار یا مال سے نقصان نہ پہنچانا۔
+            </p>
+          </article>
+        </div>
+
+        <div class="statement">
+          اچھا مسلمان صرف اپنی عبادت سے نہیں پہچانا جاتا؛ اس کے کردار، معاملات، وعدوں، انصاف، زبان اور دوسروں کے حقوق کے احترام سے بھی پہچانا جاتا ہے۔
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="section-inner">
+        <h2 class="section-title">علم صرف جاننے کا نام نہیں</h2>
+        <p class="section-lead">
+          حقیقی علم وہ ہے جو انسان کے اندر اللہ کی پہچان، جواب دہی، عاجزی، سچائی اور عمل کا احساس پیدا کرے۔
+          معلومات ذہن میں رہ جائیں اور کردار نہ بدلے تو علم کے مقصد پر دوبارہ غور کرنے کی ضرورت ہے۔
+        </p>
+
+        <div class="references">
+          <article class="ref-card">
+            <strong>علم کا اثر دل اور کردار میں ظاہر ہونا چاہیے</strong>
+            اللہ کے بندوں میں حقیقتاً وہی لوگ اس سے ڈرتے ہیں جو علم رکھنے والے ہیں۔
+            <span class="ref">حوالہ: سورۃ فاطر، ۳۵:۲۸</span>
+          </article>
+
+          <article class="ref-card">
+            <strong>انسان اپنی زندگی کا آغاز لاعلمی سے کرتا ہے</strong>
+            اللہ نے انسان کو اس حال میں دنیا میں بھیجا کہ وہ کچھ نہیں جانتا تھا، پھر اسے سننے، دیکھنے اور سمجھنے کی صلاحیتیں عطا کیں تاکہ وہ شکر گزار بنے۔
+            <span class="ref">حوالہ: سورۃ النحل، ۱۶:۷۸</span>
+          </article>
+
+          <article class="ref-card">
+            <strong>رہنمائی کا آغاز پڑھنے سے ہوا</strong>
+            اپنے رب کے نام سے پڑھنے، قلم کے ذریعے سیکھنے اور انسان کو وہ علم عطا کیے جانے کا ذکر کیا گیا جو وہ پہلے نہیں جانتا تھا۔
+            <span class="ref">حوالہ: سورۃ العلق، ۹۶:۱ تا ۵</span>
+          </article>
+
+          <article class="ref-card">
+            <strong>علم عزت بھی ہے اور ذمہ داری بھی</strong>
+            اللہ ایمان والوں اور علم دیے جانے والوں کے درجات بلند فرماتا ہے۔
+            <span class="ref">حوالہ: سورۃ المجادلہ، ۵۸:۱۱</span>
+          </article>
+
+          <article class="ref-card">
+            <strong>علم کا راستہ خیر کا راستہ ہے</strong>
+            جو شخص علم حاصل کرنے کے لیے کسی راستے پر چلتا ہے، اللہ اس کے لیے جنت کی طرف جانے والا راستہ آسان فرما دیتا ہے۔
+            <span class="ref">حوالہ: صحیح مسلم، حدیث ۲۶۹۹</span>
+          </article>
+
+          <article class="ref-card">
+            <strong>علم سیکھنا اور سکھانا عظیم خیر ہے</strong>
+            تم میں بہترین وہ ہیں جو قرآن سیکھتے ہیں اور دوسروں کو سکھاتے ہیں۔
+            <span class="ref">حوالہ: صحیح بخاری، حدیث ۵۰۲۷</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2 class="section-title">ہم کیا سیکھنے کی کوشش کریں گے؟</h2>
+        <p class="section-lead">
+          اس سفر کا مقصد ایسے بنیادی اصولوں کو آسان انداز میں سمجھنا ہے جو ایک انسان کو صرف عبادت گزار نہیں،
+          بلکہ ذمہ دار، باکردار، منصف اور دوسروں کے لیے باعثِ خیر انسان بناتے ہیں۔
+        </p>
+
+        <ul class="learning-list">
+          <li>اللہ سے تعلق اور نیت</li>
+          <li>عبادت، شکر اور صبر</li>
+          <li>توبہ اور اپنی اصلاح</li>
+          <li>والدین کے حقوق</li>
+          <li>اولاد کی ذمہ داریاں</li>
+          <li>میاں بیوی کے حقوق</li>
+          <li>رشتہ داروں سے حسنِ سلوک</li>
+          <li>پڑوسیوں کے حقوق</li>
+          <li>یتیم، مسکین اور ضرورت مند</li>
+          <li>سچائی اور دیانت</li>
+          <li>امانت اور وعدہ</li>
+          <li>عدل اور انصاف</li>
+          <li>پاکیزہ رزق اور معاملات</li>
+          <li>زبان کی حفاظت</li>
+          <li>غیبت، بہتان اور دل آزاری سے بچنا</li>
+          <li>غصہ، حسد، تکبر اور کینہ</li>
+          <li>معافی اور درگزر</li>
+          <li>رحم اور نرم دلی</li>
+          <li>معاشرتی ذمہ داری</li>
+          <li>جان، مال، عزت اور حق کا احترام</li>
+          <li>اپنی غلطیوں کا محاسبہ</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="section-inner heart">
+        <h2 class="section-title">پڑھیے، مگر پہلے اپنے دل کے لیے</h2>
+        <p>
+          علم کا سب سے خوبصورت لمحہ وہ نہیں جب ہمیں کسی دوسرے کی غلطی سمجھ آ جائے؛
+          بلکہ وہ ہے جب ہمیں اپنی اصلاح کا راستہ دکھائی دینے لگے۔
+        </p>
+        <div class="heart-questions">
+          <div>اس علم کا مجھ سے کیا تعلق ہے؟</div>
+          <div>کہاں مجھے اپنے رویے کو بہتر کرنے کی ضرورت ہے؟</div>
+          <div>کہاں مجھ سے کسی کا حق ضائع ہو رہا ہے؟</div>
+          <div>کہاں میری عبادت، زبان یا معاملات اصلاح چاہتے ہیں؟</div>
+          <div>میں آج کون سا ایک اچھا قدم اٹھا سکتا ہوں؟</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2 class="section-title">ایک بہتر انسان سے ایک پُرامن معاشرے تک</h2>
+        <p class="section-lead">
+          اگر علم انسان کے اندر اتر جائے تو اس کے اثرات صرف اس کی ذات تک محدود نہیں رہتے۔
+          ایک ذمہ دار فرد گھر کو بہتر کرتا ہے، بہتر گھر معاشرے کو مضبوط کرتا ہے، اور اچھے معاشرے امن، وقار اور باہمی احترام کی بنیاد بنتے ہیں۔
+        </p>
+
+        <div class="values">
+          <div class="value">امن</div>
+          <div class="value">برداشت</div>
+          <div class="value">تعاون</div>
+          <div class="value">بھائی چارہ</div>
+          <div class="value">عدل</div>
+          <div class="value">رحم</div>
+          <div class="value">احترام</div>
+          <div class="value">جواب دہی</div>
+        </div>
+
+        <div class="statement">
+          امید ہے کہ گھر سے شروع ہونے والی یہ خواہش ہر اُس انسان کے لیے بھی ایک پُرسکون طرزِ زندگی کا تصور پیش کرے
+          جو اختلاف کے باوجود احترام، طاقت کے باوجود انصاف، اور اپنے حق کے ساتھ دوسروں کے حق کا شعور رکھنا چاہتا ہے۔
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="احتیاط">
+      <div class="section-inner">
+        <h2 class="section-title">علمی احتیاط اور آپ سے درخواست</h2>
+
+        <div class="notice">
+          <h3>یہ تعلیمی سلسلہ صرف سیکھنے اور ذاتی اصلاح کے لیے ہے</h3>
+          <p>
+            اسے کسی مخصوص شرعی مسئلے میں حتمی فتویٰ یا کسی مستند عالم کی براہِ راست رہنمائی کا متبادل نہ سمجھا جائے۔
+            ایسے معاملات جن میں انفرادی حالات، نکاح، طلاق، وراثت، مالی معاملات یا کسی حساس شرعی فیصلے کا تعلق ہو،
+            وہاں کسی مستند اور قابلِ اعتماد عالم سے براہِ راست رہنمائی حاصل کرنا بہتر ہے۔
+          </p>
+        </div>
+
+        <div class="notice">
+          <h3>یہ ایک انسانی کوشش ہے، اس لیے اصلاح کا دروازہ کھلا ہے</h3>
+          <p>
+            اس مواد کو بہت احتیاط اور خیر خواہی کے جذبے کے ساتھ مرتب کرنے کی کوشش کی گئی ہے۔
+            پھر بھی کسی آیت کے ترجمے، حدیث کے حوالے، مفہوم، عبارت یا کسی دوسری علمی بات میں غیر ارادی غلطی یا کمی کا امکان موجود رہتا ہے۔
+            ایسی کسی غلطی پر پیشگی معذرت، اور گزارش ہے کہ نشاندہی ضرور کیجیے تاکہ تحقیق کے بعد اس کی اصلاح کی جا سکے۔
+          </p>
+          <p><strong>مقصد غلط بات پھیلانا نہیں، بلکہ صحیح بات کو سمجھنے اور سیکھنے کی مخلصانہ کوشش کرنا ہے۔</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="اسباق">
+      <div class="section-inner">
+        <div class="lessons-header">
+          <div>
+            <h2 class="section-title">تعلیمی سفر کے پینتیس اسباق</h2>
+            <p>ہر سبق الگ موضوع کو آسان، مربوط اور عملی انداز میں پیش کرے گا۔ اسباق مرحلہ وار شامل کیے جائیں گے۔</p>
+          </div>
+        </div>
+
+        <div class="lessons-grid" aria-label="اسباق کی فہرست">
+          <button class="lesson-btn" type="button" data-lesson="۱">سبق ۱</button>
+          <button class="lesson-btn" type="button" data-lesson="۲">سبق ۲</button>
+          <button class="lesson-btn" type="button" data-lesson="۳">سبق ۳</button>
+          <button class="lesson-btn" type="button" data-lesson="۴">سبق ۴</button>
+          <button class="lesson-btn" type="button" data-lesson="۵">سبق ۵</button>
+          <button class="lesson-btn" type="button" data-lesson="۶">سبق ۶</button>
+          <button class="lesson-btn" type="button" data-lesson="۷">سبق ۷</button>
+          <button class="lesson-btn" type="button" data-lesson="۸">سبق ۸</button>
+          <button class="lesson-btn" type="button" data-lesson="۹">سبق ۹</button>
+          <button class="lesson-btn" type="button" data-lesson="۱۰">سبق ۱۰</button>
+          <button class="lesson-btn" type="button" data-lesson="۱۱">سبق ۱۱</button>
+          <button class="lesson-btn" type="button" data-lesson="۱۲">سبق ۱۲</button>
+          <button class="lesson-btn" type="button" data-lesson="۱۳">سبق ۱۳</button>
+          <button class="lesson-btn" type="button" data-lesson="۱۴">سبق ۱۴</button>
+          <button class="lesson-btn" type="button" data-lesson="۱۵">سبق ۱۵</button>
+          <button class="lesson-btn" type="button" data-lesson="۱۶">سبق ۱۶</button>
+          <button class="lesson-btn" type="button" data-lesson="۱۷">سبق ۱۷</button>
+          <button class="lesson-btn" type="button" data-lesson="۱۸">سبق ۱۸</button>
+          <button class="lesson-btn" type="button" data-lesson="۱۹">سبق ۱۹</button>
+          <button class="lesson-btn" type="button" data-lesson="۲۰">سبق ۲۰</button>
+          <button class="lesson-btn" type="button" data-lesson="۲۱">سبق ۲۱</button>
+          <button class="lesson-btn" type="button" data-lesson="۲۲">سبق ۲۲</button>
+          <button class="lesson-btn" type="button" data-lesson="۲۳">سبق ۲۳</button>
+          <button class="lesson-btn" type="button" data-lesson="۲۴">سبق ۲۴</button>
+          <button class="lesson-btn" type="button" data-lesson="۲۵">سبق ۲۵</button>
+          <button class="lesson-btn" type="button" data-lesson="۲۶">سبق ۲۶</button>
+          <button class="lesson-btn" type="button" data-lesson="۲۷">سبق ۲۷</button>
+          <button class="lesson-btn" type="button" data-lesson="۲۸">سبق ۲۸</button>
+          <button class="lesson-btn" type="button" data-lesson="۲۹">سبق ۲۹</button>
+          <button class="lesson-btn" type="button" data-lesson="۳۰">سبق ۳۰</button>
+          <button class="lesson-btn" type="button" data-lesson="۳۱">سبق ۳۱</button>
+          <button class="lesson-btn" type="button" data-lesson="۳۲">سبق ۳۲</button>
+          <button class="lesson-btn" type="button" data-lesson="۳۳">سبق ۳۳</button>
+          <button class="lesson-btn" type="button" data-lesson="۳۴">سبق ۳۴</button>
+          <button class="lesson-btn" type="button" data-lesson="۳۵">سبق ۳۵</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="section-inner closing">
+        <h2 class="section-title">آج صرف ایک قدم</h2>
+        <p>
+          ضروری نہیں کہ انسان ایک ہی دن میں سب کچھ بدل دے۔ کبھی ایک سچی بات، ایک حق کی ادائیگی،
+          ایک معافی، ایک توبہ، ایک درست فیصلہ یا علم کا ایک ایسا سبق جس پر عمل ہو جائے، پوری زندگی کا رخ بدل سکتا ہے۔
+        </p>
+        <div class="closing-lines">
+          صرف جانیں نہیں، سمجھیں۔<br>
+          صرف سمجھیں نہیں، خود کو دیکھیں۔<br>
+          اور جہاں اصلاح کی ضرورت ہو، وہاں بدلنے کی کوشش کریں۔
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-title">اقرا</div>
+        <p class="footer-note">
+          علم سے شعور، شعور سے عمل، عمل سے کردار۔ ایک گھر سے شروع ہونے والی خیر کی کوشش،
+          جو انسان کو اپنے رب، اپنے حقوق، دوسروں کے حقوق اور پُرامن معاشرتی ذمہ داری کا شعور دلانے کے لیے ہے۔
+        </p>
+      </div>
+      <div class="domain">اقرا ڈاٹ ڈیٹ لینگ ڈاٹ کام</div>
+    </div>
+  </footer>
+
+  <dialog id="lessonDialog" aria-labelledby="dialogTitle">
+    <div class="modal-box">
+      <h2 id="dialogTitle">سبق تیاری کے مرحلے میں ہے</h2>
+      <p id="dialogMessage">
+        یہ سبق ابھی احتیاط سے مرتب کیا جا رہا ہے۔ مقصد صرف جلد مواد پیش کرنا نہیں، بلکہ ہر بات کو معتبر حوالے،
+        آسان زبان اور عملی رہنمائی کے ساتھ سامنے لانا ہے۔ اللہ نے چاہا تو جلد یہ سبق آپ کے مطالعے کے لیے دستیاب ہوگا۔
+        تب تک نیت تازہ رکھیے: علم وہی خوبصورت ہے جو عمل اور کردار میں اترے۔
+      </p>
+      <button class="modal-close" type="button" id="closeDialog">واپس جائیں</button>
+    </div>
+  </dialog>
+
+  <script>
+    const dialog = document.getElementById('lessonDialog');
+    const title = document.getElementById('dialogTitle');
+    const closeButton = document.getElementById('closeDialog');
+
+    document.querySelectorAll('.lesson-btn').forEach((button) => {
+      button.addEventListener('click', () => {
+        const lesson = button.getAttribute('data-lesson');
+        title.textContent = `سبق ${lesson} ابھی تیاری کے مرحلے میں ہے`;
+        if (typeof dialog.showModal === 'function') {
+          dialog.showModal();
+        } else {
+          alert(`سبق ${lesson} ابھی تیاری کے مرحلے میں ہے۔ اللہ نے چاہا تو جلد یہ سبق آپ کے مطالعے کے لیے دستیاب ہوگا۔`);
+        }
+      });
+    });
+
+    closeButton.addEventListener('click', () => dialog.close());
+
+    dialog.addEventListener('click', (event) => {
+      const box = dialog.getBoundingClientRect();
+      const outside =
+        event.clientX < box.left ||
+        event.clientX > box.right ||
+        event.clientY < box.top ||
+        event.clientY > box.bottom;
+      if (outside) dialog.close();
+    });
+  </script>
+</body>
+</html>
