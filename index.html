@@ -425,6 +425,444 @@
       margin:28px 0 0;
     }
 
+
+
+    /* نورانی درود و سلام سیکشن */
+    .salawat-section{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 50% 0%,rgba(255,255,255,1) 0 10%,rgba(248,248,248,.95) 34%,rgba(238,238,238,.82) 62%,#fff 100%);
+      color:#070707;
+      padding:0 24px 96px;
+      isolation:isolate;
+    }
+
+    .salawat-section::before,
+    .salawat-section::after{
+      content:"";
+      position:absolute;
+      border-radius:50%;
+      pointer-events:none;
+      z-index:-1;
+      filter:blur(8px);
+    }
+
+    .salawat-section::before{
+      width:780px;
+      height:780px;
+      top:-470px;
+      left:50%;
+      transform:translateX(-50%);
+      background:radial-gradient(circle,rgba(255,255,255,1) 0 22%,rgba(255,255,255,.64) 46%,rgba(255,255,255,0) 72%);
+      box-shadow:0 0 100px rgba(255,255,255,.95);
+    }
+
+    .salawat-section::after{
+      width:420px;
+      height:420px;
+      inset-inline-start:-170px;
+      top:44%;
+      background:radial-gradient(circle,rgba(255,255,255,.92),rgba(255,255,255,0) 70%);
+    }
+
+    .salawat-opening{
+      position:relative;
+      max-width:var(--max);
+      margin:auto;
+      text-align:center;
+      padding:106px 20px 66px;
+    }
+
+    .salawat-opening::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:50%;
+      width:min(940px,92vw);
+      height:1px;
+      transform:translateX(-50%);
+      background:linear-gradient(90deg,transparent,#000,transparent);
+      opacity:.18;
+    }
+
+    .noor-dots{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      margin-bottom:18px;
+      min-height:20px;
+    }
+
+    .noor-dots span{
+      display:block;
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:#111;
+      box-shadow:0 0 0 5px rgba(0,0,0,.03),0 0 22px rgba(0,0,0,.15);
+      animation:noorTwinkle 3.4s ease-in-out infinite;
+    }
+
+    .noor-dots span:nth-child(2),.noor-dots span:nth-child(6){animation-delay:.45s;width:7px;height:7px}
+    .noor-dots span:nth-child(3),.noor-dots span:nth-child(5){animation-delay:.9s;width:4px;height:4px}
+    .noor-dots span:nth-child(4){animation-delay:1.35s;width:9px;height:9px}
+
+    @keyframes noorTwinkle{
+      0%,100%{opacity:.25;transform:scale(.72)}
+      50%{opacity:1;transform:scale(1.18);box-shadow:0 0 0 7px rgba(0,0,0,.025),0 0 28px rgba(0,0,0,.18)}
+    }
+
+    .salawat-kicker{
+      display:inline-block;
+      margin-bottom:18px;
+      padding:7px 15px;
+      border:1px solid rgba(0,0,0,.32);
+      border-radius:999px;
+      background:rgba(255,255,255,.88);
+      font-size:.9rem;
+      font-weight:900;
+      box-shadow:0 10px 28px rgba(0,0,0,.05);
+    }
+
+    .salawat-title{
+      margin:0;
+      font-size:clamp(3rem,8vw,6.7rem);
+      line-height:1.22;
+      font-weight:900;
+      letter-spacing:-.025em;
+      text-shadow:0 2px 0 #fff,0 10px 36px rgba(0,0,0,.09);
+    }
+
+    .salawat-subtitle{
+      max-width:900px;
+      margin:22px auto 0;
+      font-size:clamp(1.25rem,2.8vw,1.85rem);
+      line-height:1.9;
+      font-weight:800;
+      color:#202020;
+    }
+
+    .salawat-invitation{
+      max-width:820px;
+      margin:28px auto 0;
+      padding-top:24px;
+      border-top:1px solid rgba(0,0,0,.16);
+      font-size:1.08rem;
+      color:#333;
+    }
+
+    .salawat-shell{
+      max-width:var(--max);
+      margin:auto;
+    }
+
+    .salawat-revelation{
+      position:relative;
+      overflow:hidden;
+      background:#050505;
+      color:#fff;
+      border-radius:12px;
+      padding:46px clamp(24px,5vw,58px);
+      text-align:center;
+      box-shadow:0 30px 70px rgba(0,0,0,.16),0 0 0 10px rgba(255,255,255,.72);
+    }
+
+    .salawat-revelation::before{
+      content:"";
+      position:absolute;
+      width:420px;
+      height:420px;
+      border-radius:50%;
+      top:-290px;
+      right:50%;
+      transform:translateX(50%);
+      background:radial-gradient(circle,rgba(255,255,255,.19),rgba(255,255,255,0) 68%);
+    }
+
+    .salawat-revelation small{
+      display:block;
+      margin-bottom:12px;
+      font-size:.86rem;
+      color:#cfcfcf;
+      font-weight:900;
+    }
+
+    .salawat-revelation p{
+      position:relative;
+      max-width:900px;
+      margin:0 auto;
+      font-size:clamp(1.35rem,3vw,2rem);
+      line-height:2;
+      font-weight:900;
+    }
+
+    .salawat-revelation .salawat-ref{
+      display:inline-block;
+      margin-top:18px;
+      padding-top:9px;
+      border-top:1px solid #585858;
+      font-size:.9rem;
+      font-weight:900;
+      color:#d9d9d9;
+    }
+
+    .salawat-intro{
+      max-width:930px;
+      margin:54px auto 0;
+      text-align:center;
+      font-size:1.12rem;
+      color:#242424;
+    }
+
+    .salawat-intro strong{color:#000}
+
+    .salawat-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-top:42px;
+    }
+
+    .salawat-card{
+      position:relative;
+      overflow:hidden;
+      min-height:315px;
+      padding:30px;
+      border:1px solid rgba(0,0,0,.16);
+      border-radius:10px;
+      background:rgba(255,255,255,.84);
+      box-shadow:0 18px 48px rgba(0,0,0,.055);
+      transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+    }
+
+    .salawat-card::before{
+      content:"";
+      position:absolute;
+      inset-inline:24px;
+      top:0;
+      height:3px;
+      background:linear-gradient(90deg,transparent,#111,transparent);
+      opacity:.45;
+    }
+
+    .salawat-card:hover{
+      transform:translateY(-5px);
+      border-color:rgba(0,0,0,.4);
+      box-shadow:0 26px 60px rgba(0,0,0,.09);
+    }
+
+    .salawat-number{
+      width:52px;
+      height:52px;
+      display:grid;
+      place-items:center;
+      margin-bottom:20px;
+      border-radius:50%;
+      background:#000;
+      color:#fff;
+      font-weight:900;
+      box-shadow:0 0 0 7px #f0f0f0;
+    }
+
+    .salawat-card h3{
+      margin-bottom:12px;
+      font-size:1.38rem;
+      line-height:1.65;
+    }
+
+    .salawat-card p{
+      margin:0;
+      color:#2d2d2d;
+    }
+
+    .salawat-card .salawat-ref{
+      display:inline-block;
+      margin-top:17px;
+      padding-top:8px;
+      border-top:1px solid #cfcfcf;
+      font-size:.84rem;
+      font-weight:900;
+    }
+
+    .mercy-panel{
+      position:relative;
+      margin-top:54px;
+      padding:52px clamp(24px,6vw,70px);
+      border:1px solid #111;
+      border-radius:12px;
+      background:#fff;
+      box-shadow:0 24px 70px rgba(0,0,0,.07);
+      text-align:center;
+    }
+
+    .mercy-panel::before,
+    .mercy-panel::after{
+      content:"";
+      position:absolute;
+      width:54px;
+      height:54px;
+      border-color:#000;
+      opacity:.42;
+    }
+
+    .mercy-panel::before{top:14px;right:14px;border-top:1px solid;border-right:1px solid}
+    .mercy-panel::after{bottom:14px;left:14px;border-bottom:1px solid;border-left:1px solid}
+
+    .mercy-panel h3{
+      margin-bottom:14px;
+      font-size:clamp(1.8rem,4vw,2.8rem);
+    }
+
+    .mercy-panel p{
+      max-width:900px;
+      margin:0 auto;
+      font-size:1.13rem;
+      color:#262626;
+    }
+
+    .mercy-panel .salawat-ref{
+      display:inline-block;
+      margin-top:18px;
+      font-weight:900;
+      font-size:.9rem;
+    }
+
+    .salawat-life{
+      margin-top:64px;
+      display:grid;
+      grid-template-columns:.82fr 1.18fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .salawat-life-title{
+      background:#000;
+      color:#fff;
+      border-radius:10px;
+      padding:34px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      min-height:100%;
+      box-shadow:0 22px 55px rgba(0,0,0,.13);
+    }
+
+    .salawat-life-title h3{
+      font-size:clamp(2rem,5vw,3.5rem);
+      margin-bottom:16px;
+    }
+
+    .salawat-life-title p{margin:0;color:#dedede}
+
+    .salawat-lines{
+      display:grid;
+      gap:10px;
+    }
+
+    .salawat-line{
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:16px;
+      align-items:center;
+      padding:17px 20px;
+      border:1px solid #d4d4d4;
+      background:rgba(255,255,255,.9);
+      border-radius:8px;
+      font-weight:800;
+    }
+
+    .salawat-line::before{
+      content:"";
+      width:11px;
+      height:11px;
+      border:3px solid #000;
+      border-radius:50%;
+      box-shadow:0 0 0 5px #efefef;
+    }
+
+    .salawat-world{
+      margin-top:64px;
+      padding:58px clamp(24px,6vw,70px);
+      text-align:center;
+      border-radius:12px;
+      background:linear-gradient(180deg,#fff,#f3f3f3);
+      border:1px solid #d8d8d8;
+      box-shadow:inset 0 1px 0 #fff,0 24px 65px rgba(0,0,0,.06);
+    }
+
+    .salawat-world h3{
+      font-size:clamp(2rem,5vw,3.35rem);
+      margin-bottom:18px;
+    }
+
+    .salawat-world p{
+      max-width:930px;
+      margin:0 auto;
+      font-size:1.16rem;
+      color:#222;
+    }
+
+    .salawat-world .salawat-ref{
+      display:inline-block;
+      margin-top:18px;
+      padding-top:8px;
+      border-top:1px solid #bbb;
+      font-size:.9rem;
+      font-weight:900;
+    }
+
+    .salawat-final{
+      position:relative;
+      max-width:var(--max);
+      margin:66px auto 0;
+      overflow:hidden;
+      border-radius:14px;
+      background:#000;
+      color:#fff;
+      padding:62px clamp(24px,7vw,82px);
+      text-align:center;
+      box-shadow:0 28px 80px rgba(0,0,0,.2);
+    }
+
+    .salawat-final::before{
+      content:"";
+      position:absolute;
+      width:760px;
+      height:260px;
+      top:-210px;
+      left:50%;
+      transform:translateX(-50%);
+      border-radius:50%;
+      background:radial-gradient(ellipse,rgba(255,255,255,.25),rgba(255,255,255,0) 70%);
+    }
+
+    .salawat-final h3{
+      position:relative;
+      font-size:clamp(2rem,5vw,3.45rem);
+      margin-bottom:20px;
+    }
+
+    .salawat-final p{
+      position:relative;
+      max-width:900px;
+      margin:0 auto;
+      font-size:clamp(1.15rem,2.5vw,1.48rem);
+      line-height:2.1;
+      color:#f2f2f2;
+    }
+
+    .salawat-final-lines{
+      position:relative;
+      display:grid;
+      gap:8px;
+      margin-top:30px;
+      font-size:clamp(1.25rem,3vw,1.85rem);
+      font-weight:900;
+      line-height:1.9;
+    }
+
     footer{
       background:#000;
       color:#fff;
@@ -617,6 +1055,9 @@
       .lessons-grid{grid-template-columns:repeat(3,1fr)}
       .footer-grid{grid-template-columns:1fr 1fr}
       .footer-grid .footer-card:last-child{grid-column:1 / -1}
+      .salawat-grid{grid-template-columns:1fr 1fr}
+      .salawat-grid .salawat-card:last-child{grid-column:1 / -1}
+      .salawat-life{grid-template-columns:1fr}
     }
 
     @media (max-width:700px){
@@ -634,6 +1075,13 @@
       .footer-topline{align-items:flex-start;flex-direction:column}
       .footer-domain{white-space:normal}
       .footer-grid{grid-template-columns:1fr}
+      .salawat-section{padding-inline:16px;padding-bottom:70px}
+      .salawat-opening{padding-top:76px}
+      .salawat-grid{grid-template-columns:1fr}
+      .salawat-grid .salawat-card:last-child{grid-column:auto}
+      .salawat-card{min-height:auto}
+      .salawat-revelation{padding-block:36px}
+      .salawat-final{margin-top:46px;padding-block:48px}
     }
 
     @media (max-width:420px){
@@ -647,6 +1095,7 @@
 
     @media (prefers-reduced-motion:reduce){
       *{scroll-behavior:auto!important;transition:none!important}
+      .noor-dots span{animation:none!important}
     }
   </style>
 </head>
@@ -662,6 +1111,7 @@
         <a href="#مقصد">مقصد</a>
         <a href="#ذمہ-داریاں">ذمہ داریاں</a>
         <a href="#اسباق">اسباق</a>
+        <a href="#درود">درود و سلام</a>
         <a href="#احتیاط">اہم وضاحت</a>
       </div>
     </nav>
@@ -965,6 +1415,123 @@
         </div>
       </div>
     </section>
+
+    <section class="salawat-section" id="درود" aria-labelledby="درود-عنوان">
+      <div class="salawat-opening">
+        <div class="noor-dots" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <span class="salawat-kicker">محبت، ادب اور رحمت کا روشن باب</span>
+        <h2 class="salawat-title" id="درود-عنوان">درود و سلام کی فضیلت و برکات</h2>
+        <p class="salawat-subtitle">
+          وہ ذکر جو زبان سے نکلے تو محبت بنے، دل میں اترے تو ادب بنے،
+          اور کردار تک پہنچے تو رحمت، نرمی، سچائی اور خیر کی صورت اختیار کرے۔
+        </p>
+        <p class="salawat-invitation">
+          آئیے اس حصے کو صرف آنکھوں سے نہ پڑھیں۔ چند لمحوں کے لیے دل کو دنیا کے شور سے الگ کیجیے،
+          رسول اکرم صلی اللہ علیہ وسلم کی امت تک پہنچنے والی رحمت کو یاد کیجیے، اور درود و سلام کو محبت اور شعور کے ساتھ اپنی زبان پر لائیے۔
+        </p>
+      </div>
+
+      <div class="salawat-shell">
+        <div class="salawat-revelation">
+          <small>قرآن کی دعوت</small>
+          <p>
+            بے شک اللہ اور اس کے فرشتے نبی پر درود بھیجتے ہیں۔ اے ایمان والو، تم بھی ان پر درود بھیجو اور خوب سلام پیش کرو۔
+          </p>
+          <span class="salawat-ref">حوالہ: سورۃ الاحزاب، ۳۳:۵۶</span>
+        </div>
+
+        <p class="salawat-intro">
+          رسول اکرم صلی اللہ علیہ وسلم سے محبت ایمان کی زندگی میں ایک عظیم نسبت ہے۔
+          درود و سلام اسی محبت کا پاکیزہ اظہار ہے: بندہ اپنے نبی کے لیے اللہ تعالیٰ سے رحمت، سلامتی اور بلندی کی دعا کرتا ہے،
+          اور خود بھی <strong>رحمت، قرب، ادب اور اصلاح</strong> کی راہ پر قدم رکھنے کی امید کرتا ہے۔
+        </p>
+
+        <div class="salawat-grid">
+          <article class="salawat-card">
+            <div class="salawat-number">۱</div>
+            <h3>ایک درود، دس رحمتیں</h3>
+            <p>
+              رسول اللہ صلی اللہ علیہ وسلم نے فرمایا کہ جو شخص آپ پر ایک مرتبہ درود بھیجتا ہے،
+              اللہ تعالیٰ اس پر دس مرتبہ رحمت فرماتا ہے۔ ایک مختصر عمل، مگر بندے کے لیے رحمت کی کتنی وسیع امید۔
+            </p>
+            <span class="salawat-ref">حوالہ: صحیح مسلم، حدیث ۴۰۸</span>
+          </article>
+
+          <article class="salawat-card">
+            <div class="salawat-number">۲</div>
+            <h3>قربِ رسول کی امید</h3>
+            <p>
+              قیامت کے دن رسول اللہ صلی اللہ علیہ وسلم کے قریب ہونے کی بشارت ان لوگوں کے لیے بیان ہوئی ہے
+              جو دنیا میں کثرت سے آپ پر درود بھیجتے ہیں۔ محبت جب ذکر سے جڑتی ہے تو تعلق زندہ رہتا ہے۔
+            </p>
+            <span class="salawat-ref">حوالہ: جامع ترمذی، حدیث ۴۸۴</span>
+          </article>
+
+          <article class="salawat-card">
+            <div class="salawat-number">۳</div>
+            <h3>محبت جس کا اثر کردار میں آئے</h3>
+            <p>
+              درود صرف زبان کی خوبصورتی نہ رہے۔ جس نبی پر ہم محبت سے درود بھیجتے ہیں،
+              انہی کی تعلیم ہمیں رحم، سچائی، امانت، عدل، نرمی اور انسانوں کے حقوق کا احترام سکھاتی ہے۔
+            </p>
+            <span class="salawat-ref">اقرا کا عملی پیغام</span>
+          </article>
+        </div>
+
+        <div class="mercy-panel">
+          <h3>ہمیں رحمت سے جوڑنے والی نسبت</h3>
+          <p>
+            اللہ تعالیٰ نے رسول اکرم صلی اللہ علیہ وسلم کو تمام جہانوں کے لیے رحمت بنا کر بھیجا۔
+            اس رحمت کو یاد کرتے ہوئے دعا ہے کہ ہمارے دل تنگی سے کشادگی کی طرف، سختی سے نرمی کی طرف،
+            بے رحمی سے شفقت کی طرف اور اختلاف میں تلخی سے احترام کی طرف بڑھیں۔
+          </p>
+          <span class="salawat-ref">حوالہ: سورۃ الانبیاء، ۲۱:۱۰۷</span>
+        </div>
+
+        <div class="salawat-life">
+          <div class="salawat-life-title">
+            <h3>درود زبان پر ہو، روشنی کردار میں اترے</h3>
+            <p>
+              محبت کا حسن تب بڑھتا ہے جب ذکر ہمارے رویے کو بھی نرم اور پاکیزہ بنائے۔
+            </p>
+          </div>
+
+          <div class="salawat-lines">
+            <div class="salawat-line">درود زبان پر ہو — اور جھوٹ زندگی سے کم ہونے لگے۔</div>
+            <div class="salawat-line">درود زبان پر ہو — اور دل میں رحم بڑھنے لگے۔</div>
+            <div class="salawat-line">درود زبان پر ہو — اور معاملات میں دیانت آنے لگے۔</div>
+            <div class="salawat-line">درود زبان پر ہو — اور غصے کے مقابلے میں برداشت پیدا ہونے لگے۔</div>
+            <div class="salawat-line">درود زبان پر ہو — اور والدین، اہلِ خانہ، پڑوسیوں اور کمزوروں کے حقوق کا احساس بڑھنے لگے۔</div>
+          </div>
+        </div>
+
+        <div class="salawat-world">
+          <h3>ایک روشن دل سے ایک روشن دنیا تک</h3>
+          <p>
+            درود و سلام پڑھتے ہوئے ہم صرف اپنے لیے آسانی نہیں مانگتے؛ ہم اس رحمت کی تعلیم کو اپنی زندگی میں جگہ دینے کی نیت بھی تازہ کرتے ہیں۔
+            دعا ہے کہ ہمارے گھر سکون کے گھر بنیں، دل کشادہ ہوں، زبانیں نرم ہوں، تعلقات آسان ہوں،
+            اور زمین پر جہاں ہم رہتے ہیں وہاں ہمارے وجود سے امن، برداشت، تعاون، بھائی چارہ اور خیر بڑھے۔
+          </p>
+        </div>
+      </div>
+
+      <div class="salawat-final">
+        <h3>چند لمحے رک کر محبت سے درود پڑھیے</h3>
+        <p>
+          شاید زندگی کی ہر مشکل فوراً ختم نہ ہو، مگر رحمت کی یاد انسان کو مشکل کے اندر بھی صحیح راستہ، نرم دل اور مضبوط امید دے سکتی ہے۔
+          رسول اکرم صلی اللہ علیہ وسلم کی محبت کو زبان کے ذکر سے دل کی کیفیت، اور دل کی کیفیت سے اچھے کردار تک پہنچنے دیجیے۔
+        </p>
+        <div class="salawat-final-lines">
+          <div>پڑھیے تاکہ جان سکیں۔</div>
+          <div>سمجھیے تاکہ پہچان سکیں۔</div>
+          <div>درود بھیجیے تاکہ محبت زندہ رہے۔</div>
+          <div>اور عمل کیجیے تاکہ اس محبت کی گواہی آپ کا کردار بھی دے۔</div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
@@ -1008,6 +1575,7 @@
             <a href="#مقصد">اقرا کا مقصد</a>
             <a href="#ذمہ-داریاں">حقوق اور ذمہ داریاں</a>
             <a href="#اسباق">تعلیمی اسباق</a>
+            <a href="#درود">درود و سلام</a>
             <a href="#احتیاط">علمی احتیاط</a>
           </nav>
         </section>
