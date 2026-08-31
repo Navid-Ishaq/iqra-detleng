@@ -428,37 +428,157 @@
     footer{
       background:#000;
       color:#fff;
-      border-top:1px solid #333;
+      border-top:1px solid #2b2b2b;
+      position:relative;
+      overflow:hidden;
     }
 
-    .footer-inner{
+    footer::before{
+      content:"";
+      position:absolute;
+      inset-inline:0;
+      top:0;
+      height:1px;
+      background:linear-gradient(90deg,transparent,#fff,transparent);
+      opacity:.55;
+    }
+
+    .footer-shell{
       max-width:var(--max);
       margin:auto;
-      padding:40px 24px;
-      display:grid;
-      grid-template-columns:1fr auto;
+      padding:72px 24px 28px;
+    }
+
+    .footer-topline{
+      display:flex;
       align-items:end;
-      gap:28px;
+      justify-content:space-between;
+      gap:30px;
+      padding-bottom:34px;
+      border-bottom:1px solid #303030;
+    }
+
+    .footer-brand{max-width:760px;}
+
+    .footer-eyebrow{
+      display:inline-block;
+      margin-bottom:14px;
+      padding:6px 11px;
+      border:1px solid #707070;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:900;
+      color:#e8e8e8;
     }
 
     .footer-title{
-      font-size:1.55rem;
+      font-size:clamp(2.5rem,7vw,5.2rem);
+      line-height:1.1;
       font-weight:900;
-      margin-bottom:6px;
+      margin:0 0 14px;
+      letter-spacing:-.02em;
     }
 
-    .footer-note{
-      max-width:780px;
-      color:#d9d9d9;
+    .footer-tagline{
       margin:0;
+      font-size:1.18rem;
+      font-weight:800;
+      line-height:1.9;
+      color:#f0f0f0;
     }
 
-    .domain{
+    .footer-domain{
       white-space:nowrap;
       font-weight:900;
-      border:1px solid #777;
-      padding:9px 12px;
+      border:1px solid #686868;
+      border-radius:6px;
+      padding:11px 14px;
+      color:#f4f4f4;
+      background:#0b0b0b;
     }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr 1fr .75fr;
+      gap:18px;
+      margin-top:28px;
+    }
+
+    .footer-card{
+      border:1px solid #303030;
+      border-radius:8px;
+      background:#070707;
+      padding:26px;
+      min-height:100%;
+    }
+
+    .footer-card h3{
+      margin:0 0 12px;
+      font-size:1.25rem;
+      line-height:1.6;
+    }
+
+    .footer-card p{margin:0;color:#d7d7d7;line-height:2;}
+
+    .initiative-card{border-color:#8a8a8a;background:#fff;color:#000;}
+    .initiative-card p{color:#222;}
+
+    .initiative-name{
+      display:block;
+      margin-top:16px;
+      padding-top:14px;
+      border-top:1px solid #cfcfcf;
+      font-weight:900;
+      font-size:1.08rem;
+    }
+
+    .footer-links{display:grid;gap:8px;margin-top:8px;}
+
+    .footer-links a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      text-decoration:none;
+      padding:9px 0;
+      border-bottom:1px solid #262626;
+      color:#efefef;
+      transition:.18s ease;
+    }
+
+    .footer-links a::after{content:"←";font-weight:900;}
+
+    .footer-links a:hover,
+    .footer-links a:focus-visible{
+      padding-inline-start:7px;
+      color:#fff;
+      outline:none;
+    }
+
+    .footer-prayer{
+      margin-top:18px;
+      padding:22px 24px;
+      border:1px solid #303030;
+      border-radius:8px;
+      text-align:center;
+      color:#ededed;
+      background:#050505;
+      font-weight:700;
+    }
+
+    .footer-bottom{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      margin-top:24px;
+      padding-top:22px;
+      border-top:1px solid #252525;
+      color:#adadad;
+      font-size:.88rem;
+    }
+
+    .footer-bottom strong{color:#fff;}
 
     dialog{
       width:min(720px,calc(100% - 30px));
@@ -495,6 +615,8 @@
       .learning-list{grid-template-columns:repeat(2,1fr)}
       .values{grid-template-columns:repeat(2,1fr)}
       .lessons-grid{grid-template-columns:repeat(3,1fr)}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .footer-grid .footer-card:last-child{grid-column:1 / -1}
     }
 
     @media (max-width:700px){
@@ -509,14 +631,18 @@
       .lessons-header{display:block}
       .lessons-header p{margin-top:12px}
       .lessons-grid{grid-template-columns:repeat(2,1fr)}
-      .footer-inner{grid-template-columns:1fr}
-      .domain{white-space:normal}
+      .footer-topline{align-items:flex-start;flex-direction:column}
+      .footer-domain{white-space:normal}
+      .footer-grid{grid-template-columns:1fr}
     }
 
     @media (max-width:420px){
       .lessons-grid{grid-template-columns:1fr}
       .values{grid-template-columns:1fr}
       .quick-card,.block,.notice,.modal-box{padding:22px}
+      .footer-shell{padding-top:54px}
+      .footer-card{padding:22px}
+      .footer-bottom{align-items:flex-start;flex-direction:column}
     }
 
     @media (prefers-reduced-motion:reduce){
@@ -842,15 +968,61 @@
   </main>
 
   <footer>
-    <div class="footer-inner">
-      <div>
-        <div class="footer-title">اقرا</div>
-        <p class="footer-note">
-          علم سے شعور، شعور سے عمل، عمل سے کردار۔ ایک گھر سے شروع ہونے والی خیر کی کوشش،
-          جو انسان کو اپنے رب، اپنے حقوق، دوسروں کے حقوق اور پُرامن معاشرتی ذمہ داری کا شعور دلانے کے لیے ہے۔
-        </p>
+    <div class="footer-shell">
+      <div class="footer-topline">
+        <div class="footer-brand">
+          <span class="footer-eyebrow">ایک گھر سے آغاز، خیر کی ایک وسیع امید</span>
+          <div class="footer-title">اقرا</div>
+          <p class="footer-tagline">
+            علم سے شعور، شعور سے عمل، عمل سے کردار — اور کردار سے ایک ایسی زندگی
+            جو اپنے رب کے حق، بندوں کے حق اور معاشرتی امن، عدل اور رحم کو ساتھ لے کر چلے۔
+          </p>
+        </div>
+        <div class="footer-domain">اقرا ڈاٹ ڈیٹ لینگ ڈاٹ کام</div>
       </div>
-      <div class="domain">اقرا ڈاٹ ڈیٹ لینگ ڈاٹ کام</div>
+
+      <div class="footer-grid">
+        <section class="footer-card initiative-card">
+          <h3>خیر کی اس ابتدا کے پس منظر میں</h3>
+          <p>
+            یہ تعلیمی کوشش خاندان کے بزرگ رشید احمد طاہری صاحب کی اس دلی خواہش اور ترغیب سے شروع ہوئی
+            کہ علم، اصلاح اور اچھے کردار کی ابتدا پہلے اپنے گھر سے کی جائے۔ مقصد کسی پر برتری جتانا نہیں،
+            بلکہ خود سیکھنا، اپنے آپ کو بہتر کرنا اور خیر کو قریب سے شروع کرنا ہے۔
+          </p>
+          <span class="initiative-name">رشید احمد طاہری صاحب کی خیر کی ترغیب اور خاندانی علمی اقدام</span>
+        </section>
+
+        <section class="footer-card">
+          <h3>ایک نیت، ایک سمت</h3>
+          <p>
+            امید ہے کہ گھر سے اٹھنے والا یہ قدم آگے چل کر ایسا پُرامن طرزِ زندگی سمجھنے میں مدد دے
+            جس میں برداشت، باہمی احترام، تعاون، بھائی چارہ، انصاف، رحم اور جواب دہی صرف الفاظ نہیں
+            بلکہ روزمرہ کردار کا حصہ بنیں۔
+          </p>
+        </section>
+
+        <section class="footer-card">
+          <h3>اہم روابط</h3>
+          <nav class="footer-links" aria-label="فُٹر رہنمائی">
+            <a href="#اوپر">صفحے کے آغاز پر جائیں</a>
+            <a href="#مقصد">اقرا کا مقصد</a>
+            <a href="#ذمہ-داریاں">حقوق اور ذمہ داریاں</a>
+            <a href="#اسباق">تعلیمی اسباق</a>
+            <a href="#احتیاط">علمی احتیاط</a>
+          </nav>
+        </section>
+      </div>
+
+      <div class="footer-prayer">
+        اللہ تعالیٰ رشید احمد طاہری صاحب کو اس نیک نیت اور خیر کی ترغیب پر بہترین اجر عطا فرمائے،
+        ان کی صحت، عمر، عافیت اور سکون میں برکت دے، ان کی نیک خواہش کو صدقۂ جاریہ بنائے،
+        اور اس کوشش سے پیدا ہونے والی ہر درست بات اور ہر نفع بخش عمل کو ان کے لیے باعثِ اجر فرمائے۔ آمین۔
+      </div>
+
+      <div class="footer-bottom">
+        <div><strong>اقرا</strong> — سیکھنے، سمجھنے اور ذاتی اصلاح کے مقصد سے مرتب کیا گیا تعلیمی سلسلہ۔</div>
+        <div>غلطی کی نشاندہی خیر خواہی ہے؛ تحقیق کے بعد اصلاح کا دروازہ ہمیشہ کھلا ہے۔</div>
+      </div>
     </div>
   </footer>
 
