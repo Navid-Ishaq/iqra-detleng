@@ -1421,6 +1421,133 @@
         padding-bottom:.36em;
       }
     }
+
+    /* Luminous footer — a quiet, dignified closing experience */
+    footer{
+      isolation:isolate;
+    }
+
+    footer::after{
+      content:"";
+      position:absolute;
+      z-index:-1;
+      width:760px;
+      height:420px;
+      inset-inline-end:-260px;
+      bottom:-260px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(13,168,138,.2),transparent 68%);
+      pointer-events:none;
+    }
+
+    .footer-topline{
+      position:relative;
+      padding:31px;
+      border:1px solid rgba(245,215,126,.2);
+      border-radius:22px;
+      background:linear-gradient(135deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+      box-shadow:0 22px 55px rgba(0,0,0,.13),inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .footer-title{
+      color:#fff;
+      text-shadow:0 0 32px rgba(245,215,126,.2);
+    }
+
+    .footer-pillars{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+      margin:22px 0 6px;
+    }
+
+    .footer-pillar{
+      position:relative;
+      overflow:hidden;
+      padding:11px 13px 14px;
+      border:1px solid rgba(245,215,126,.22);
+      border-radius:999px;
+      background:rgba(255,255,255,.065);
+      color:#fff7d6;
+      text-align:center;
+      font-weight:900;
+      box-shadow:0 10px 25px rgba(0,0,0,.1);
+    }
+
+    .footer-pillar::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.12) 50%,transparent 65%);
+      transform:translateX(-120%);
+      animation:footerShine 7s ease-in-out infinite;
+    }
+
+    .footer-pillar:nth-child(2)::before{animation-delay:.7s}
+    .footer-pillar:nth-child(3)::before{animation-delay:1.4s}
+    .footer-pillar:nth-child(4)::before{animation-delay:2.1s}
+
+    @keyframes footerShine{
+      0%,48%{transform:translateX(-120%)}
+      68%,100%{transform:translateX(120%)}
+    }
+
+    .footer-card{
+      position:relative;
+      overflow:hidden;
+      transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+    }
+
+    .footer-card::before{
+      content:"";
+      position:absolute;
+      inset-inline:24px;
+      top:0;
+      height:2px;
+      background:linear-gradient(90deg,transparent,var(--gold-light),transparent);
+      opacity:.55;
+    }
+
+    .footer-card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(245,215,126,.35);
+      box-shadow:0 26px 55px rgba(0,0,0,.16);
+    }
+
+    .footer-prayer{
+      position:relative;
+      overflow:hidden;
+      padding:27px 30px;
+      border-color:rgba(245,215,126,.34);
+      background:linear-gradient(120deg,rgba(245,215,126,.09),rgba(255,255,255,.055),rgba(13,168,138,.1));
+      color:#fff8dc;
+      box-shadow:0 16px 38px rgba(0,0,0,.12);
+      line-height:2.25;
+    }
+
+    .footer-prayer::before{
+      content:"✦";
+      display:block;
+      margin-bottom:5px;
+      color:var(--gold-light);
+      font-family:serif;
+      font-size:1.35rem;
+      line-height:1;
+    }
+
+    @media (max-width:760px){
+      .footer-topline{padding:24px}
+      .footer-pillars{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media (max-width:420px){
+      .footer-pillars{grid-template-columns:1fr 1fr}
+      .footer-pillar{padding-inline:8px;font-size:.9rem}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      .footer-pillar::before{animation:none}
+    }
   </style>
 </head>
 <body>
@@ -1474,22 +1601,24 @@
 
     <section class="section section-dark" id="آغاز">
       <div class="section-inner origin">
-        <div class="origin-mark">ایک گھر سے آغاز، خیر کی ایک وسیع امید</div>
+        <div class="origin-mark">اپنی اصلاح سے آغاز، اجتماعی خیر کی طرف سفر</div>
         <div class="origin-copy">
-          <h2 class="section-title">یہ کوشش ایک خاندانی نیت سے شروع ہوئی</h2>
+          <h2 class="section-title">یہ کوشش ایک مشترکہ احساس سے شروع ہوئی</h2>
           <p>
-            اس تعلیمی سلسلے کی بنیاد خاندان کے بزرگ <strong>رشید احمد طاہری صاحب</strong> کی اس ہدایت اور دلی خواہش پر رکھی گئی ہے
-            کہ علم اور اصلاح کی ابتدا پہلے اپنے گھر سے کی جائے؛ کیونکہ معاشرے کی بہتری اکثر وہیں سے جنم لیتی ہے جہاں ایک فرد
-            اپنے آپ کو، اپنے گھر کو اور اپنی ذمہ داریوں کو سنجیدگی سے سمجھنا شروع کرتا ہے۔
+            یہ تعلیمی سلسلہ اس احساس کے ساتھ شروع کیا گیا ہے کہ اسلامی تعلیمات صرف جاننے یا بیان کرنے کے لیے نہیں،
+            بلکہ انہیں سمجھ کر اپنی روزمرہ زندگی کا حصہ بنانے کے لیے ہیں۔ ایک عام انسان اپنی مصروف زندگی میں یہ کیسے سیکھے
+            کہ اسلام اسے اپنے رب، اپنی ذات، اپنے گھر، اپنے رشتوں، اپنے معاملات اور معاشرے کے ساتھ کس طرزِ عمل کی تعلیم دیتا ہے؟
+            اقرا انہی سوالات کو سادہ، محتاط اور قابلِ فہم انداز میں سمجھنے کی ایک عاجزانہ کوشش ہے۔
           </p>
           <p>
-            یہ کوشش کسی برتری کے احساس سے نہیں، بلکہ سیکھنے، اپنی اصلاح کرنے اور خیر کو قریب سے شروع کرنے کی نیت سے ہے۔
-            امید ہے کہ گھر سے اٹھنے والا یہ چھوٹا سا قدم آگے چل کر دوسروں کے لیے بھی ایک پُرامن، باوقار اور ذمہ دار طرزِ زندگی کی یاد دہانی بن سکے۔
+            اس سفر کا مقصد کسی پر برتری جتانا، حکم لگانا یا خود کو کامل سمجھنا نہیں۔ یہ اپنی کمزوریوں کو پہچاننے،
+            درست بات سیکھنے، اپنی اصلاح کرنے اور خیر کا آغاز اپنی ذات اور اپنے گھر سے کرنے کی دعوت ہے۔ امید ہے کہ اس سلسلے کا
+            ہر سبق قاری کو اپنے رویّے کا جائزہ لینے اور اپنی زندگی میں ایک چھوٹی مگر حقیقی مثبت تبدیلی لانے کی ترغیب دے گا۔
           </p>
           <div class="dua">
-            اللہ تعالیٰ رشید احمد طاہری صاحب کو اس نیک نیت اور خیر کی ترغیب پر بہترین اجر عطا فرمائے، ان کی عمر، صحت، سکون اور عزت میں برکت عطا فرمائے،
-            انہیں ایمان، عافیت اور دل کا اطمینان نصیب کرے، ان کی نیک خواہشات کو صدقۂ جاریہ بنائے، ان کے اہلِ خانہ میں محبت، خیر اور اتفاق قائم رکھے،
-            اور اس کوشش سے پیدا ہونے والی ہر درست بات، ہر نفع بخش علم اور ہر اچھے عمل کا اجر ان کے نامۂ اعمال میں بھی شامل فرمائے۔ آمین۔
+            اللہ تعالیٰ اس کوشش کو خالص نیت، درست فہم اور نفع بخش عمل کا ذریعہ بنائے۔ جو شخص اسے پڑھے، سمجھے،
+            اس کی تیاری میں معاونت کرے یا کسی دوسرے تک خیر کی بات پہنچائے، اللہ تعالیٰ اس کی کوشش قبول فرمائے
+            اور ہم سب کو علم، عدل، رحم، دیانت اور حسنِ اخلاق اپنی زندگی میں اپنانے کی توفیق عطا فرمائے۔ آمین۔
           </div>
         </div>
       </div>
@@ -1862,7 +1991,7 @@
     <div class="footer-shell">
       <div class="footer-topline">
         <div class="footer-brand">
-          <span class="footer-eyebrow">ایک گھر سے آغاز، خیر کی ایک وسیع امید</span>
+          <span class="footer-eyebrow">علم سے عمل تک، ایک مشترکہ سفر</span>
           <div class="footer-title">اقرا</div>
           <p class="footer-tagline">
             علم سے شعور، شعور سے عمل، عمل سے کردار — اور کردار سے ایک ایسی زندگی
@@ -1872,23 +2001,30 @@
         <div class="footer-domain">اقرا ڈاٹ ڈیٹ لینگ ڈاٹ کام</div>
       </div>
 
+      <div class="footer-pillars" aria-label="اقرا کے تعلیمی سفر کے چار مراحل">
+        <div class="footer-pillar">سیکھیے</div>
+        <div class="footer-pillar">سمجھیے</div>
+        <div class="footer-pillar">اپنائیے</div>
+        <div class="footer-pillar">خیر بانٹیے</div>
+      </div>
+
       <div class="footer-grid">
         <section class="footer-card initiative-card">
-          <h3>خیر کی اس ابتدا کے پس منظر میں</h3>
+          <h3>ایک مشترکہ احساس</h3>
           <p>
-            یہ تعلیمی کوشش خاندان کے بزرگ رشید احمد طاہری صاحب کی اس دلی خواہش اور ترغیب سے شروع ہوئی
-            کہ علم، اصلاح اور اچھے کردار کی ابتدا پہلے اپنے گھر سے کی جائے۔ مقصد کسی پر برتری جتانا نہیں،
-            بلکہ خود سیکھنا، اپنے آپ کو بہتر کرنا اور خیر کو قریب سے شروع کرنا ہے۔
+            اقرا اس احساس سے وجود میں آیا کہ اسلامی تعلیمات کو صرف معلومات کے طور پر نہیں،
+            بلکہ اپنے رویّے، گھر، رشتوں اور معاملات میں سمجھ کر اپنانا چاہیے۔ یہ کسی برتری کا دعویٰ نہیں،
+            بلکہ سیکھنے، اپنی اصلاح کرنے اور خیر کو قریب سے شروع کرنے کی دعوت ہے۔
           </p>
-          <span class="initiative-name">رشید احمد طاہری صاحب کی خیر کی ترغیب اور خاندانی علمی اقدام</span>
+          <span class="initiative-name">اپنی اصلاح سے اجتماعی خیر تک</span>
         </section>
 
         <section class="footer-card">
-          <h3>ایک نیت، ایک سمت</h3>
+          <h3>علم کا مقصد</h3>
           <p>
-            امید ہے کہ گھر سے اٹھنے والا یہ قدم آگے چل کر ایسا پُرامن طرزِ زندگی سمجھنے میں مدد دے
-            جس میں برداشت، باہمی احترام، تعاون، بھائی چارہ، انصاف، رحم اور جواب دہی صرف الفاظ نہیں
-            بلکہ روزمرہ کردار کا حصہ بنیں۔
+            علم دل کی روشنی، زبان کی سچائی اور کردار کی خوب صورتی بنے۔ ہماری کوشش ہے کہ برداشت،
+            باہمی احترام، انصاف، رحم، دیانت اور جواب دہی صرف پڑھے جانے والے الفاظ نہ رہیں،
+            بلکہ روزمرہ زندگی اور معاملات میں دکھائی دیں۔
           </p>
         </section>
 
@@ -1906,9 +2042,9 @@
       </div>
 
       <div class="footer-prayer">
-        اللہ تعالیٰ رشید احمد طاہری صاحب کو اس نیک نیت اور خیر کی ترغیب پر بہترین اجر عطا فرمائے،
-        ان کی صحت، عمر، عافیت اور سکون میں برکت دے، ان کی نیک خواہش کو صدقۂ جاریہ بنائے،
-        اور اس کوشش سے پیدا ہونے والی ہر درست بات اور ہر نفع بخش عمل کو ان کے لیے باعثِ اجر فرمائے۔ آمین۔
+        اللہ تعالیٰ ہمیں ایسی بات سیکھنے کی توفیق دے جو ہمارے لیے نفع بخش ہو، اسے سمجھنے کی بصیرت دے،
+        اور اسے اخلاص، حکمت اور حسنِ کردار کے ساتھ اپنی زندگی میں اپنانے کی ہمت عطا فرمائے۔
+        اس کوشش میں شامل ہر درست بات کو قبول فرمائے، ہر لغزش کی اصلاح کی توفیق دے، اور اسے خیر پھیلانے کا ذریعہ بنائے۔ آمین۔
       </div>
 
       <div class="footer-bottom">
