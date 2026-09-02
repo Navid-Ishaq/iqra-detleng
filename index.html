@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="ur" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="اقرا — اسلامی ضابطۂ انسانی زندگی، حقوق اللہ، حقوق العباد، کردار اور معاشرتی ذمہ داری کو آسان اور قابلِ فہم انداز میں سیکھنے کا ایک تعلیمی سفر۔">
+  <meta name="description" content="Iqra — a thoughtful journey from knowledge to awareness, action, character and a better life.">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='32' y='46' text-anchor='middle' direction='rtl' font-family='serif' font-size='36' font-weight='900' fill='%23000000'%3E%D8%A7%D9%82%D8%B1%D8%A7%3C/text%3E%3C/svg%3E">
-<title>اقرا — علم سے شعور، شعور سے عمل</title>
+<title>Iqra — From Knowledge to Awareness and Action</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Nastaliq+Urdu:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
     :root{
       --ink:#0a0a0a;
@@ -1549,8 +1549,19 @@
       .footer-pillar::before{animation:none}
     }
   </style>
+  <style>
+    body.lang-en{direction:ltr;font-family:"Manrope","Segoe UI",Arial,sans-serif;font-size:18px;line-height:1.72}
+    body.lang-en .section-title,body.lang-en .salawat-title{line-height:1.18;letter-spacing:-.035em}
+    body.lang-en h1,body.lang-en h2,body.lang-en h3{font-family:"Manrope","Segoe UI",Arial,sans-serif}
+    body.lang-en .hero h1{letter-spacing:-.055em;line-height:1.02}
+    body.lang-en .hero-line{line-height:1.32}
+    body.lang-en .nav-links{font-size:.86rem}
+    .language-switch{border:1px solid #c8901c;background:#fff8e7;color:#684900;border-radius:999px;padding:7px 16px;font-weight:800;white-space:nowrap;box-shadow:0 7px 20px rgba(126,88,9,.1)}
+    .language-switch:hover,.language-switch:focus-visible{background:#0b6855;color:#fff;border-color:#0b6855;outline:none}
+    @media(max-width:780px){.nav{gap:12px}.language-switch{padding:6px 12px}.nav-links{order:3;width:100%;justify-content:center}body.lang-en .nav-links{font-size:.78rem}}
+  </style>
 </head>
-<body>
+<body class="lang-en">
   <a class="skip-link" href="#اصل-مواد">اصل مواد پر جائیں</a>
 
   <header class="site-header">
@@ -1565,6 +1576,7 @@
         <a href="#درود">درود و سلام</a>
         <a href="#احتیاط">اہم وضاحت</a>
       </div>
+      <button class="language-switch" type="button" id="languageSwitch" aria-label="اردو میں پڑھیں">اردو میں پڑھیں</button>
     </nav>
   </header>
 
@@ -2070,28 +2082,174 @@
     const dialog = document.getElementById('lessonDialog');
     const title = document.getElementById('dialogTitle');
     const closeButton = document.getElementById('closeDialog');
+    const languageSwitch = document.getElementById('languageSwitch');
+    let currentLanguage = 'en';
+    const translations = [];
 
-    document.querySelectorAll('.lesson-btn').forEach((button) => {
+    function bind(selector, english, index = 0) {
+      const element = document.querySelectorAll(selector)[index];
+      if (!element) return;
+      translations.push({ element, urdu: element.innerHTML, english });
+    }
+    function bindAll(selector, englishValues) {
+      document.querySelectorAll(selector).forEach((element, index) => {
+        translations.push({ element, urdu: element.innerHTML, english: englishValues[index] ?? element.innerHTML });
+      });
+    }
+
+    bind('.skip-link', 'Skip to the main content');
+    bind('.brand', 'Iqra');
+    bindAll('.nav-links a', ['Introduction','Beginning','Purpose','Responsibilities','Lessons','Peace & Blessings','Important Note']);
+    bind('.hero .kicker', 'iqra.detleng.com');
+    bind('.hero h1', 'Iqra');
+    bind('.hero-line', 'From knowledge to awareness, from awareness to action, from action to character—and from character to a better life.');
+    bind('.hero-copy', 'A thoughtful educational journey into the Islamic way of life. Its purpose is not merely to learn what Islam teaches, but to understand how that guidance should shape our relationship with our Creator, ourselves, our families, our communities, and all of humanity.');
+    bindAll('.hero-actions a', ['Begin the Learning Journey','Discover the Purpose of Iqra']);
+    bindAll('.quick-card h2', ['What Is Iqra?','Who Is It For?','Why Does It Matter?']);
+    bindAll('.quick-card p', [
+      'Iqra is a simple educational series of approximately thirty-five lessons, exploring the Islamic way of life, personal character, and human responsibilities.',
+      'It is for anyone who wishes to understand faith as more than information—and wants its guidance to bring goodness into personal life, family relationships, daily dealings, and society.',
+      'So that knowledge may reach the heart; so that we understand the rights of others alongside our own; and so that worship, honesty, justice, mercy, and accountability become part of the way we live.'
+    ]);
+    bind('.origin-mark', 'Beginning with Ourselves, Moving Towards the Common Good');
+    bindAll('.section-title', [
+      'This Journey Began with a Shared Concern',
+      'The Central Purpose of Iqra',
+      'Knowledge Is More Than Knowing',
+      'What Will We Try to Learn?',
+      'Read—But First, Read for Yourself',
+      'From a Better Individual to a More Peaceful Society',
+      'An Important Academic Note and a Sincere Request',
+      'A Learning Journey of Thirty-Five Lessons',
+      'Take Just One Step Today'
+    ]);
+    bindAll('.origin-copy > p', [
+      'This educational series began with a simple realization: Islamic teachings are not meant only to be known or spoken about. They are meant to be understood and sincerely brought into our daily lives. How can an ordinary person, living a busy and demanding life, learn what Islam teaches about one’s relationship with Allah, the self, the family, personal responsibilities, everyday dealings, and the wider community? Iqra is a humble effort to explore these questions in language that is simple, careful, and easy to understand.',
+      'This journey is not about claiming superiority, judging others, or presenting ourselves as perfect. It is an invitation to recognize our weaknesses, learn what is right, improve ourselves, and allow goodness to begin within our own lives and homes. We hope that every lesson encourages the reader to reflect upon personal conduct and take one small but sincere step towards positive change.'
+    ]);
+    bind('.dua', 'May Allah make this effort a means of sincere intention, sound understanding, and beneficial action. May He accept the contribution of everyone who reads, understands, assists, or shares something good from it, and enable us all to live with knowledge, justice, mercy, honesty, and beautiful character. Ameen.');
+    bindAll('.section-lead', [
+      'Iqra is not merely a place to read. It is an invitation to look within, understand our responsibilities, and allow knowledge to become part of our character. The focus of this journey is the whole of human life: our relationship with Allah and the way we treat His creation.',
+      'True knowledge awakens within a person the recognition of Allah, a sense of accountability, humility, honesty, and the desire to act rightly. If information remains in the mind but brings no improvement in character, we may need to reflect again on the purpose of learning.',
+      'This journey explores essential principles that can help a person become not only devoted in worship, but also responsible, trustworthy, fair, compassionate, and beneficial to others.',
+      'When knowledge truly enters a person’s heart, its effects do not remain limited to that individual. A responsible person strengthens the home; stronger homes build healthier communities; and healthy communities become the foundation of peace, dignity, and mutual respect.'
+    ]);
+    bindAll('.block h3', ['Our Responsibilities Towards Allah','Our Responsibilities Towards People']);
+    bindAll('.block p', [
+      'To know our Creator, believe in Him, worship Him, live with gratitude, return to Him in repentance, purify our intentions, understand His guidance, and sincerely try to shape our lives according to what pleases Him.',
+      'To treat parents, children, spouses, relatives, neighbours, friends, those in need, and all members of society with justice, mercy, honesty, trustworthiness, dignity, and kindness—and never take away another person’s rights or cause harm through our words, actions, authority, or wealth.'
+    ]);
+    bindAll('.statement', [
+      'A good Muslim is known not only through acts of worship, but also through character, promises, fairness, speech, daily dealings, and respect for the rights of others.',
+      'We hope that this journey, beginning within the home, offers a peaceful and dignified way of life to everyone who wishes to show respect despite disagreement, practise justice despite having power, and remain mindful of the rights of others alongside one’s own.'
+    ]);
+    bindAll('.ref-card', [
+      '<strong>Knowledge Should Be Visible in the Heart and Character</strong>Among the servants of Allah, those who truly stand in awe of Him are the people of knowledge.<span class="ref">Reference: Surah Fatir, 35:28</span>',
+      '<strong>Human Life Begins without Knowledge</strong>Allah brings human beings into the world knowing nothing, then grants them hearing, sight, and understanding so that they may become grateful.<span class="ref">Reference: Surah An-Nahl, 16:78</span>',
+      '<strong>Guidance Began with the Command to Read</strong>The first revelation speaks of reading in the name of the Lord, learning through the pen, and receiving knowledge that humanity did not previously possess.<span class="ref">Reference: Surah Al-‘Alaq, 96:1–5</span>',
+      '<strong>Knowledge Is Both an Honour and a Responsibility</strong>Allah raises in rank those who believe and those who have been given knowledge.<span class="ref">Reference: Surah Al-Mujadilah, 58:11</span>',
+      '<strong>The Path of Knowledge Is a Path towards Goodness</strong>Whoever follows a path in search of knowledge, Allah makes a path to Paradise easier for that person.<span class="ref">Reference: Sahih Muslim, Hadith 2699</span>',
+      '<strong>Learning and Teaching Are Acts of Great Goodness</strong>The best among you are those who learn the Qur’an and teach it to others.<span class="ref">Reference: Sahih al-Bukhari, Hadith 5027</span>'
+    ]);
+    bindAll('.learning-list li', [
+      'Our relationship with Allah and the importance of intention','Worship, gratitude, and patience','Repentance and personal reform','The rights of parents','Responsibilities towards children','The rights of husband and wife','Kindness towards relatives','The rights of neighbours','Care for orphans, the poor, and those in need','Truthfulness and integrity','Trusts and promises','Justice and fairness','Lawful earnings and honest dealings','Guarding the tongue','Avoiding backbiting, false accusations, and hurtful speech','Dealing with anger, jealousy, pride, and resentment','Forgiveness and overlooking faults','Mercy and gentleness','Social responsibility','Respect for life, property, dignity, and human rights','Holding ourselves accountable for our mistakes'
+    ]);
+    bind('.heart > p', 'The most beautiful moment of learning is not when we discover someone else’s mistake. It is when we begin to recognize the path towards our own improvement.');
+    bindAll('.heart-questions div', ['What does this knowledge mean for me?','Where does my conduct need improvement?','Am I overlooking someone else’s rights?','Do my worship, words, or daily dealings need correction?','What is one good step I can take today?']);
+    bindAll('.value', ['Peace','Patience','Cooperation','Brotherhood','Justice','Mercy','Respect','Accountability']);
+    bindAll('.notice h3', ['This Series Is Intended for Learning and Personal Improvement','This Is a Human Effort, and the Door to Correction Remains Open']);
+    bindAll('.notice p', [
+      'This educational series should not be treated as a final religious ruling on a specific matter or as a replacement for direct guidance from a qualified and trustworthy scholar. Questions involving personal circumstances, marriage, divorce, inheritance, financial dealings, or sensitive religious decisions should be discussed directly with an appropriately qualified scholar.',
+      'Every effort has been made to prepare this material with care, responsibility, and sincere concern. Even so, an unintentional mistake or omission may occur in the translation of a verse, a Hadith reference, an explanation, or another academic detail. We sincerely apologise for any such error and respectfully request that it be brought to our attention so it can be reviewed and corrected after proper research.',
+      '<strong>Our purpose is not to spread an incorrect idea, but to make a sincere effort to understand and learn what is right.</strong>'
+    ]);
+    bind('.lessons-header p', 'Each lesson will explore a separate subject in a simple, connected, and practical way. Lessons will be added gradually after careful preparation.');
+    bind('.closing > p', 'You do not have to change everything in a single day. Sometimes one honest word, one fulfilled responsibility, one apology, one sincere repentance, one fair decision, or one lesson brought into practice can change the direction of an entire life.');
+    bind('.closing-lines', 'Do not merely know—understand.<br>Do not merely understand—look within.<br>And wherever improvement is needed, sincerely try to change.');
+    bind('.salawat-kicker', 'A Radiant Chapter of Love, Respect, and Mercy');
+    bind('.salawat-title', 'The Blessings and Virtues of Sending Peace and Blessings upon the Prophet ﷺ');
+    bind('.salawat-subtitle', 'A remembrance that leaves the tongue as love, enters the heart as reverence, and reaches our character as mercy, gentleness, truthfulness, and goodness.');
+    bind('.salawat-invitation', 'Let us not read this section only with our eyes. For a few moments, let the heart step away from the noise of the world. Remember the mercy that reached this Ummah through the Messenger of Allah ﷺ, and lovingly send peace and blessings upon him with awareness, gratitude, and respect.');
+    bind('.salawat-revelation small', 'The Invitation of the Qur’an');
+    bind('.salawat-revelation p', 'Indeed, Allah and His angels send blessings upon the Prophet. O believers, send blessings upon him and greet him with complete peace.');
+    bind('.salawat-revelation .salawat-ref', 'Reference: Surah Al-Ahzab, 33:56');
+    bind('.salawat-intro', 'Love for the Messenger of Allah ﷺ is one of the most precious bonds in the life of faith. Sending peace and blessings upon him is a pure expression of that love: a believer asks Allah to grant the Prophet ﷺ honour, peace, mercy, and the highest rank, while also hoping to walk a path of <strong>mercy, closeness, reverence, and personal reform.</strong>');
+    bindAll('.salawat-number', ['1','2','3']);
+    bindAll('.salawat-card h3', ['One Salutation, Ten Blessings','The Hope of Closeness to the Messenger ﷺ','A Love Reflected in Character']);
+    bindAll('.salawat-card p', [
+      'The Messenger of Allah ﷺ taught that whoever sends blessings upon him once receives ten blessings from Allah. A brief act—yet it carries such a beautiful and far-reaching hope of mercy.',
+      'Glad tidings of closeness to the Messenger of Allah ﷺ on the Day of Judgement have been given to those who frequently send blessings upon him in this life. When love is joined with remembrance, the relationship remains alive.',
+      'Let sending blessings upon the Prophet ﷺ be more than beauty upon the tongue. The Messenger we lovingly remember taught us mercy, truthfulness, trustworthiness, justice, gentleness, and respect for the rights of others.'
+    ]);
+    bindAll('.salawat-card .salawat-ref', ['Reference: Sahih Muslim, Hadith 408','Reference: Jami‘ at-Tirmidhi, Hadith 484','The Practical Message of Iqra']);
+    bind('.mercy-panel h3', 'A Sacred Bond That Connects Us with Mercy');
+    bind('.mercy-panel p', 'Allah sent the Messenger Muhammad ﷺ as a mercy to all the worlds. As we remember that mercy, we pray that our hearts may move from narrowness towards openness, from harshness towards gentleness, from indifference towards compassion, and from bitterness in disagreement towards respect.');
+    bind('.mercy-panel .salawat-ref', 'Reference: Surah Al-Anbiya, 21:107');
+    bind('.salawat-life-title h3', 'Let Blessings Be upon the Tongue and Their Light Enter Our Character');
+    bind('.salawat-life-title p', 'Love becomes more beautiful when remembrance also softens and purifies our conduct.');
+    bindAll('.salawat-line', [
+      'Let blessings be upon our tongues—and let dishonesty begin to leave our lives.','Let blessings be upon our tongues—and let mercy grow within our hearts.','Let blessings be upon our tongues—and let integrity enter our dealings.','Let blessings be upon our tongues—and let patience rise above anger.','Let blessings be upon our tongues—and let our concern increase for parents, families, neighbours, the weak, and those in need.'
+    ]);
+    bind('.salawat-world h3', 'From an Illuminated Heart to a Brighter World');
+    bind('.salawat-world p', 'When sending peace and blessings upon the Messenger of Allah ﷺ, we do not seek goodness only for ourselves. We also renew our intention to give his teachings a meaningful place in our lives. May our homes become places of peace, our hearts generous, our words gentle, and our relationships easier. May our presence bring peace, patience, cooperation, brotherhood, and goodness wherever we live.');
+    bind('.salawat-final h3', 'Pause for a Moment and Send Blessings with Love');
+    bind('.salawat-final > p', 'Life’s difficulties may not disappear immediately. Yet the remembrance of the Messenger of Allah ﷺ can bring direction in moments of darkness, gentleness to the heart, and strength to hope. Allow your love for the Messenger of Allah ﷺ to travel from remembrance upon the tongue to a state of the heart—and from the heart into beautiful character.');
+    bindAll('.salawat-final-lines div', ['Read, so that you may know.','Understand, so that you may recognize.','Send blessings, so that love may remain alive.','And act, so that your character may bear witness to that love.']);
+    bind('.footer-eyebrow', 'From Knowledge to Action—A Journey We Share');
+    bind('.footer-title', 'Iqra');
+    bind('.footer-tagline', 'From knowledge to awareness, from awareness to action, and from action to character—towards a life that honours our responsibilities to Allah, respects the rights of people, and carries peace, justice, and mercy into society.');
+    bind('.footer-domain', 'iqra.detleng.com');
+    bindAll('.footer-pillar', ['Learn','Understand','Live What You Learn','Share Goodness']);
+    bindAll('.footer-card h3', ['A Shared Concern','The Purpose of Knowledge','Important Links']);
+    bindAll('.footer-card p', [
+      'Iqra was created from the belief that Islamic teachings should not remain pieces of information. They should be understood and reflected in our conduct, homes, relationships, and daily dealings. This is not a claim of superiority; it is an invitation to keep learning, work upon ourselves, and allow goodness to begin close to home.',
+      'May knowledge become light within the heart, truthfulness upon the tongue, and beauty within our character. We hope that patience, mutual respect, justice, mercy, honesty, and accountability will not remain words that are merely read, but become values visible in everyday life.'
+    ]);
+    bind('.initiative-name', 'From Personal Reform to the Common Good');
+    bindAll('.footer-links a', ['Back to the Beginning','The Purpose of Iqra','Rights and Responsibilities','Educational Lessons','Peace and Blessings','Academic Note']);
+    bind('.footer-prayer', '<strong style="display:block;font-size:1.2em;margin-bottom:8px">A Prayer for Acceptance and Guidance</strong>May Allah enable us to learn what is beneficial, grant us the insight to understand it, and give us the courage to bring it into our lives with sincerity, wisdom, and beautiful character. May He accept every correct and beneficial part of this effort, enable us to correct every mistake, and make it a means of spreading goodness. Ameen.');
+    bindAll('.footer-bottom > div', ['<strong>Iqra</strong> — an educational series prepared for learning, understanding, reflection, and personal improvement.','Recognizing an error is an act of sincere goodwill. After careful review, the door to correction will always remain open.']);
+    bind('#dialogTitle', 'This Lesson Is Being Carefully Prepared');
+    bind('#dialogMessage', 'This lesson is currently under preparation. Our purpose is not simply to publish content quickly, but to present every subject with reliable references, clear language, and practical guidance. Allah willing, it will soon be available for study. Until then, renew your intention: knowledge becomes truly beautiful when it is reflected in action and character.');
+    bind('#closeDialog', 'Go Back');
+
+    function setLanguage(language) {
+      currentLanguage = language;
+      const english = language === 'en';
+      document.documentElement.lang = language;
+      document.documentElement.dir = english ? 'ltr' : 'rtl';
+      document.body.classList.toggle('lang-en', english);
+      translations.forEach(({element, urdu, english: englishText}) => { element.innerHTML = english ? englishText : urdu; });
+      document.querySelectorAll('.lesson-btn').forEach((button, index) => {
+        button.textContent = english ? `Lesson ${index + 1}` : `سبق ${button.dataset.lesson}`;
+      });
+      languageSwitch.textContent = english ? 'اردو میں پڑھیں' : 'Read in English';
+      languageSwitch.setAttribute('aria-label', english ? 'اردو میں پڑھیں' : 'Read in English');
+      document.querySelector('.site-header nav').setAttribute('aria-label', english ? 'Main navigation' : 'مرکزی رہنمائی');
+      document.querySelector('.lessons-grid').setAttribute('aria-label', english ? 'List of lessons' : 'اسباق کی فہرست');
+      document.querySelector('.footer-pillars').setAttribute('aria-label', english ? 'Four stages of the Iqra learning journey' : 'اقرا کے تعلیمی سفر کے چار مراحل');
+      document.querySelector('.footer-links').setAttribute('aria-label', english ? 'Footer navigation' : 'فُٹر رہنمائی');
+      document.title = english ? 'Iqra — From Knowledge to Awareness and Action' : 'اقرا — علم سے شعور، شعور سے عمل';
+    }
+
+    languageSwitch.addEventListener('click', () => setLanguage(currentLanguage === 'en' ? 'ur' : 'en'));
+    setLanguage('en');
+
+    document.querySelectorAll('.lesson-btn').forEach((button, index) => {
       button.addEventListener('click', () => {
-        const lesson = button.getAttribute('data-lesson');
-        title.textContent = `سبق ${lesson} ابھی تیاری کے مرحلے میں ہے`;
+        const english = currentLanguage === 'en';
+        title.textContent = english ? `Lesson ${index + 1} Is Being Carefully Prepared` : `سبق ${button.dataset.lesson} ابھی تیاری کے مرحلے میں ہے`;
         if (typeof dialog.showModal === 'function') {
           dialog.showModal();
         } else {
-          alert(`سبق ${lesson} ابھی تیاری کے مرحلے میں ہے۔ اللہ نے چاہا تو جلد یہ سبق آپ کے مطالعے کے لیے دستیاب ہوگا۔`);
+          alert(english ? `Lesson ${index + 1} is being carefully prepared and will be available soon, Allah willing.` : `سبق ${button.dataset.lesson} ابھی تیاری کے مرحلے میں ہے۔ اللہ نے چاہا تو جلد یہ سبق آپ کے مطالعے کے لیے دستیاب ہوگا۔`);
         }
       });
     });
-
     closeButton.addEventListener('click', () => dialog.close());
-
     dialog.addEventListener('click', (event) => {
       const box = dialog.getBoundingClientRect();
-      const outside =
-        event.clientX < box.left ||
-        event.clientX > box.right ||
-        event.clientY < box.top ||
-        event.clientY > box.bottom;
+      const outside = event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom;
       if (outside) dialog.close();
     });
   </script>
