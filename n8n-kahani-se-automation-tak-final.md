@@ -49,7 +49,7 @@ A two-node workflow and a two-hundred-node enterprise workflow are usually telli
 
 The difference is only the size of the cast.
 
-> **Eks2 Whisper**  
+> **n8n Whisper**  
 > *A workflow is not a collection of nodes. It is a small story in which every piece of data is trying to reach the right ending.*
 
 ---
@@ -317,14 +317,14 @@ Lead
 IF payment_received = true
     → Welcome!
 ELSE
-    → Janab, the invoice is still alive.
+    → Well, the invoice is still alive.
 ```
 
 **Why it matters**  
 Business rules live inside decisions.
 
 **Remember it like this**  
-**IF = “Agar ye, to woh.”**
+**IF = “If this, then that.”**
 
 ---
 
@@ -1450,7 +1450,7 @@ Allows the conversation to retain relevant context instead of starting from zero
 **A little smile**  
 Without memory, AI may greet you every few minutes like a distant relative at a wedding:
 
-> “Beta, naam kya bataya tha?”
+> “Remind me, what was your name again?”
 
 **Professional meaning**  
 Memory mechanisms provide prior conversational context according to the memory component being used.
@@ -2156,7 +2156,7 @@ And somewhere near the end, every workflow is hoping to hear:
 
 ---
 
-# 25. Eks2’s Closing Whisper
+# 25. n8n’s Closing Whisper
 
 > *Do not stare at forty nodes and ask how you will ever memorise them.*  
 > *Ask what role each one is playing in the story.*
@@ -2172,7 +2172,7 @@ and more like **life arranged carefully into steps**.
 
 ---
 
-# n8n — Kahani Se Automation Tak
+# n8n — From Story to Automation
 
 ### The core idea
 
